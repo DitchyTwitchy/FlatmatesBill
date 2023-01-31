@@ -1,0 +1,2 @@
+# FlatmatesBill
+Dummy educational app
