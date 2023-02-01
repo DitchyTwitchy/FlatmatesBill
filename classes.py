@@ -5,7 +5,10 @@ class MonthlyBill:
      - month: string(MM.YYYY)
      - total_amount: amount to be split between all tenants -> float rounded to 2 digits
      - list_of_tenants: list of names to split the bill -> [str]
-    """
+     - days_per_tenant: days each tenant stayed at the apartment -> []
+     - payment_split: fraction of the whole payment to be paid by each tenant -> []
+     - amounts_to_pay: amount to be paid by each tenant -> []
+     """
     def __init__(self, month: str, total_amount: float, list_of_tenants: list):
         self.total_amount = total_amount
         self.month = month
@@ -35,7 +38,7 @@ class MonthlyBill:
         self.get_amounts_to_pay()
 
     def __str__(self):
-        data_representation = f'{self.month}: {self.total_amount}\n'
+        data_representation = f'Total amount for {self.month}: {self.total_amount}$\n'
         for num, tenant in enumerate(self.list_of_tenants):
             tenant_data = {}
             if len(self.days_per_tenant) == len(self.list_of_tenants):
